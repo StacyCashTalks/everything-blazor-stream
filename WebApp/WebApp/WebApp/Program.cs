@@ -1,3 +1,4 @@
+using BLazor.Shared.Services;
 using WebApp.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,6 +7,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddSingleton<IBlazorTestService, ServerTestService>();
 
 var app = builder.Build();
 
