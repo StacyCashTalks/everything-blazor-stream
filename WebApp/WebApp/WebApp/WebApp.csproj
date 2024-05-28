@@ -9,6 +9,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\BLazor.Shared\BLazor.Shared.csproj" />
     <ProjectReference Include="..\WebApp.Client\WebApp.Client.csproj" />
+    <PackageReference Include="Auth0.AspNetCore.Authentication" Version="1.4.1" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
   </ItemGroup>
 
