@@ -26,7 +26,7 @@ internal sealed class PersistingServerAuthenticationStateProvider : ServerAuthen
         options = optionsAccessor.Value;
 
         AuthenticationStateChanged += OnAuthenticationStateChanged;
-        subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveWebAssembly);
+        subscription = state.RegisterOnPersisting(OnPersistingAsync, RenderMode.InteractiveAuto);
     }
 
     private void OnAuthenticationStateChanged(Task<AuthenticationState> task)

@@ -3,6 +3,8 @@ using BLazor.Shared.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using WebApp.Components;
+using Microsoft.AspNetCore.Components.Authorization;
+using WebApp;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,7 @@ builder.Services.AddRazorComponents()
 builder.Services.AddSingleton<IBlazorTestService, ServerTestService>();
 
 builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddScoped<AuthenticationStateProvider, PersistingServerAuthenticationStateProvider>();
 builder.Services
     .AddAuth0WebAppAuthentication(options =>
     {

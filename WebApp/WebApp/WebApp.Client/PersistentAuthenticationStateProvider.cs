@@ -13,7 +13,8 @@ internal class PersistentAuthenticationStateProvider : AuthenticationStateProvid
 
     public PersistentAuthenticationStateProvider(PersistentComponentState state)
     {
-        if (!state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out var userInfo) || userInfo is null)
+        bool foundState = !state.TryTakeFromJson<UserInfo>(nameof(UserInfo), out var userInfo);
+        if (foundState || userInfo is null)
         {
             return;
         }
