@@ -1,0 +1,11 @@
+﻿@page "/"
+@using BLazor.Shared.Services
+@inject IBlazorTestService TestService
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<p>@TestService.GetTestString()</p>
