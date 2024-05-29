@@ -1,0 +1,24 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@inject ILoginProvider loginProvider
+
+<AuthorizeView>
+    <Authorized>
+        <a @onclick="LogoutAsync">Log out</a>
+    </Authorized>
+    <NotAuthorized>
+        <a @onclick="LoginAsync">Log in</a>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+
+    private async Task LoginAsync()
+    {
+        await loginProvider.LoginAsync();
+    }
+
+    private async Task LogoutAsync()
+    {
+        await loginProvider.LogoutAsync();
+    }
+}
